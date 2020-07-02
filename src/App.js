@@ -1,11 +1,14 @@
 import React from "react";
-import "./styles.css";
+import "./styles.scss";
+import Note from "./components/Note/Note";
+import AddNote from "./components/AddNote/AddNote";
 
 export default function App() {
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>p
-      <h2>Start editing to see some magic happen!</h2>
+      <h1>Simple Notes</h1>
+      <Note />
+      <AddNote />
     </div>
   );
 }

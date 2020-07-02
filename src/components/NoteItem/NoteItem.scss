@@ -1,0 +1,17 @@
+.NoteItem {
+  background: #3498db;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1em;
+
+  .icon-down {
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  & + & {
+    margin-top: .5em;
+  }
+}

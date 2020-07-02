@@ -1,0 +1,14 @@
+.AddNote {
+  padding: 2em;
+  background: #e74c3c;
+  cursor: pointer;
+  color: white;
+
+  .icon-plus {
+    font-size: 2rem;
+  }
+
+  &:hover {
+    background: #c0392b;
+  }
+}
