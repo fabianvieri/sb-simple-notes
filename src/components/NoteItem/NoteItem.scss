@@ -1,17 +1,28 @@
-.NoteItem {
-  background: #3498db;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 1em;
-
-  .icon-down {
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
-
+.NoteItem {  
   & + & {
     margin-top: .5em;
   }
+
+  .header-note {
+    background: #3498db;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1em;
+  
+    .icon-down {
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  }
+
+  .detail-note-container {
+    border: 5px solid #3498db;
+    padding: .5em;
+  }
 }
+
+
+
+
