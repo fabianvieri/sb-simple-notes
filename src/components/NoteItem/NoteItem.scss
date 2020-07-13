@@ -1,0 +1,42 @@
+.NoteItem {  
+  & + & {
+    margin-top: .5em;
+  }
+
+  .header-note {
+    background: #3498db;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em 1em;
+
+    .tag-section {
+      width:80%;
+      h3, p{
+        margin:0;
+        padding: 0;
+        text-align: left;
+      }
+
+      p {
+        font-size: 0.6rem;
+      }
+    }
+
+    .icon-section {
+      width:20%;
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+
+  .detail-note-container {
+    border: 5px solid #3498db;
+    padding: .5em;
+  }
+}
+
+
+
+
