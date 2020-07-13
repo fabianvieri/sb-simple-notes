@@ -1,11 +1,16 @@
-import React from "react";
-import "./styles.css";
+import React, { useState } from "react";
+import "./styles.scss";
+import Note from "./components/Note/Note";
+import Login from "./components/Login/Login";
 
 export default function App() {
+  const [isLogin, setLogin] = useState(false);
+
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>p
-      <h2>Start editing to see some magic happen!</h2>
+      {isLogin ? null : <Login click={setLogin} />}
+      <h1>Simple Notes</h1>
+      <Note />
     </div>
   );
 }
