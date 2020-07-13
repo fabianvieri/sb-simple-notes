@@ -14,8 +14,19 @@ const textStyle = {
   fontSize: "1.1rem"
 };
 
+const colorLib = {
+  note: "red",
+  family: "blue",
+  work: "green",
+  school: "purple",
+  friend: "salmon",
+  holiday: "orange"
+};
+
 const NoteItem = ({ tag, data, change, deleteNote, date, changeTag }) => {
   const [showNote, setShowNote] = useState(false);
+  const bgColor = { background: colorLib[tag] };
+  const borderColor = { border: `5px solid ${colorLib[tag]}` };
 
   const toogleNote = () => {
     setShowNote(!showNote);
@@ -34,7 +45,7 @@ const NoteItem = ({ tag, data, change, deleteNote, date, changeTag }) => {
 
   return (
     <div className="NoteItem">
-      <div className="header-note">
+      <div style={bgColor} className="header-note">
         <div className="tag-section">
           <h3>{tag}</h3>
           <p>{date.toDateString()}</p>
@@ -45,7 +56,12 @@ const NoteItem = ({ tag, data, change, deleteNote, date, changeTag }) => {
           <ViewNote click={toogleNote} toogle={showNote} />
         </div>
       </div>
-      <div className={showNote ? "detail-note-container" : ""}>{note}</div>
+      <div
+        style={borderColor}
+        className={showNote ? "detail-note-container" : ""}
+      >
+        {note}
+      </div>
     </div>
   );
 };
