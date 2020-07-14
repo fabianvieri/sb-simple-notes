@@ -8,7 +8,7 @@ export default function App() {
 
   return (
     <div className="App">
-      {isLogin ? null : <Login click={setLogin} />}
+      {/* {isLogin ? null : <Login click={setLogin} />} */}
       <h1>Simple Notes</h1>
       <Note />
     </div>
