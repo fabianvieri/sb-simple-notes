@@ -1,14 +1,22 @@
 import React from "react";
 import "./Login.scss";
 
-const Login = () => {
+const Login = ({ click, username, change }) => {
   return (
     <div className="Login">
-      <div>
-        <h1>Login</h1>
-        <input type="text" placeholder="username" />
-        <button>submit</button>
-        <p>dont have username just create one</p>
+      <div className="form">
+        <h1>Enter Username</h1>
+        <input
+          type="text"
+          placeholder="username"
+          value={username}
+          onChange={change}
+          required
+        />
+        <button type="submit" onClick={click}>
+          submit
+        </button>
+        <p>dont have username ? just enter one</p>
       </div>
     </div>
   );

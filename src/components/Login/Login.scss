@@ -5,4 +5,34 @@
   right:0;
   bottom:0;
   background-color: salmon;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .form {
+    input {
+      padding: .6em;
+      border: none;
+    }
+
+    h1 {
+      color: white;
+      margin: 0 0 .5em;
+    }
+
+    button {
+      padding: .6em;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      color: white;
+      background-color: rgb(151, 66, 66);
+    }
+
+    p {
+      color: white;
+      font-size: .8rem;
+      margin: .5em 0 0;
+    }
+  }
 }

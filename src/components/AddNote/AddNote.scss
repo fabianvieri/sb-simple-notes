@@ -1,9 +1,12 @@
 .AddNote {
-  background: salmon;
+  background: rgb(211, 95, 83);
   padding: 2.5em;
-
   .icon-plus {
     color: white;
     font-size: 2em;
+  }
+  cursor: pointer;
+  &:hover {
+    background: rgb(192, 93, 82);
   }
 }

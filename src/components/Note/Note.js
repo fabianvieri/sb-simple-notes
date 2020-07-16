@@ -1,37 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Note.scss";
 import NoteItem from "../NoteItem/NoteItem";
 import AddNote from "../AddNote/AddNote";
 import TagView from "../TagView/TagView";
 
-const initNotesItem = [
-  {
-    id: "note1",
-    tag: "holiday",
-    data: "this is my hobby",
-    date: new Date(),
-    color: "orange"
-  },
-  {
-    id: "note2",
-    tag: "work",
-    data: "don't be late at work",
-    date: new Date(),
-    color: "green"
-  },
-  {
-    id: "note3",
-    tag: "family",
-    data: "my sister birthday",
-    date: new Date(),
-    color: "blue"
-  }
-];
+// const initNotesItem = [
+//   {
+//     id: "note1",
+//     tag: "holiday",
+//     data: "this is my hobby",
+//     date: new Date()
+//   },
+//   {
+//     id: "note2",
+//     tag: "work",
+//     data: "don't be late at work",
+//     date: new Date()
+//   },
+//   {
+//     id: "note3",
+//     tag: "family",
+//     data: "my sister birthday",
+//     date: new Date()
+//   }
+// ];
 
-const Note = () => {
-  const [notesItem, setNotesItem] = useState(initNotesItem);
+const Note = ({ username }) => {
+  const [notesItem, setNotesItem] = useState([]);
   const [toogleTag, setToogleTag] = useState(false);
   const [noteToChangeTag, setNoteToChangeTag] = useState("");
+
+  useEffect(() => {
+    localStorage.clear();
+    const initNotesItem = localStorage.getItem(username);
+    if (initNotesItem) {
+      setNotesItem(JSON.parse(initNotesItem));
+    }
+  }, [username]);
 
   const handleTextChange = (event, id) => {
     const tempNotesItem = [...notesItem];
