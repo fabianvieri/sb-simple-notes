@@ -31,7 +31,6 @@ const Note = ({ username }) => {
   const [noteToChangeTag, setNoteToChangeTag] = useState("");
 
   useEffect(() => {
-    localStorage.clear();
     const initNotesItem = localStorage.getItem(username);
     if (initNotesItem) {
       setNotesItem(JSON.parse(initNotesItem));
@@ -46,17 +45,34 @@ const Note = ({ username }) => {
         break;
       }
     }
+
+    localStorage.setItem(username, JSON.stringify(tempNotesItem));
     setNotesItem(tempNotesItem);
   };
 
   const handleAddNote = () => {
     const tempNotesItem = [...notesItem];
     const currId = "note" + (tempNotesItem.length + 1);
+    const date = new Date();
+    const formatDate =
+      date.getFullYear() +
+      "-" +
+      (date.getMonth() + 1) +
+      "-" +
+      date.getDate() +
+      " " +
+      date.getHours() +
+      ":" +
+      date.getMinutes() +
+      ":" +
+      date.getSeconds();
     tempNotesItem.push({
       id: currId,
       tag: "note",
-      date: new Date()
+      data: "this is new note",
+      date: formatDate
     });
+    localStorage.setItem(username, JSON.stringify(tempNotesItem));
     setNotesItem(tempNotesItem);
   };
 
@@ -74,6 +90,7 @@ const Note = ({ username }) => {
       const cnf = window.confirm("are you sure want ot delete this note ?");
       if (cnf) {
         tempNotesItem.splice(found, 1);
+        localStorage.setItem(username, JSON.stringify(tempNotesItem));
         setNotesItem(tempNotesItem);
       }
     }
@@ -92,6 +109,7 @@ const Note = ({ username }) => {
         break;
       }
     }
+    localStorage.setItem(username, JSON.stringify(tempNotesItem));
     setNotesItem(tempNotesItem);
     setToogleTag(!toogleTag);
   };

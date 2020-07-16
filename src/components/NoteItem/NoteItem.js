@@ -48,7 +48,7 @@ const NoteItem = ({ tag, data, change, deleteNote, date, changeTag }) => {
       <div style={bgColor} className="header-note">
         <div className="tag-section">
           <h3>{tag}</h3>
-          <p>{date.toDateString()}</p>
+          <p>{date}</p>
         </div>
         <div className="icon-section">
           <ChangeTag click={changeTag} />
